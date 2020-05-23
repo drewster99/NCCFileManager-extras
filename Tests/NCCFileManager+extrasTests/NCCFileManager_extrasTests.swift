@@ -6,7 +6,16 @@ final class NCCFileManager_extrasTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(NCCFileManager_extras().text, "Hello, World!")
+
+        let url = FileManager.default.documentsFolder
+        XCTAssertFalse(url.absoluteString.isEmpty, "Couldn't get documentsFolder")
+
+        let subfolder = "jerry"
+        let jerryUrl = FileManager.default.urlForDocumentsSubfolder(named: subfolder)
+
+        XCTAssertEqual(String(jerryUrl.absoluteString.suffix(subfolder.count + 1).dropLast()),
+                       subfolder,
+                       "urlForDocumentsSubFolder did not append subfolder name")
     }
 
     static var allTests = [

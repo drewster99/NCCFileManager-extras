@@ -1,3 +1,5 @@
 # NCCFileManager+extras
 
-A description of this package.
+Adds a few simple FileManager extensions:
+
+
